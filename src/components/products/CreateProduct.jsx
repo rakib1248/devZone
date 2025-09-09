@@ -116,7 +116,7 @@ const CreateProduct = ({ title, img, price, id, publicId, all }) => {
       <Modal
         isOpen={isModal}
         onClose={() => setIsModal(false)}
-        title="Create a Product">
+        title="Update a Product">
         <form
           onSubmit={handleFormSubmit}
           className="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
@@ -172,7 +172,7 @@ const CreateProduct = ({ title, img, price, id, publicId, all }) => {
           <button
             type="submit"
             className="w-full bg-blue-600 text-white rounded py-2 cursor-pointer hover:bg-blue-400">
-            Crete Product
+            Update Product
           </button>
         </form>
       </Modal>
