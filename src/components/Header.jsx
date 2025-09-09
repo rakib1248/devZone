@@ -42,7 +42,7 @@ const Header = () => {
   // form submit
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setIsLoder(true);
+   
     // validation
     const { title, sellPrice, dec } = product;
     if (!title.trim())
@@ -52,6 +52,9 @@ const Header = () => {
     if (!dec.trim()) alertToast({ text: "Description Empty", type: "error" });
     if (!image)
       return alertToast({ text: "Product Image  Empty", type: "error" });
+
+
+     setIsLoder(true);
 
     // sent data server
 

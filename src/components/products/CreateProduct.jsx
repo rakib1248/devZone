@@ -175,6 +175,14 @@ const CreateProduct = ({ title, img, price, id, publicId, all }) => {
               className="border p-2 rounded w-full h-24"
             />
           </div>
+          <input
+            type="text"
+            name="id"
+            placeholder="Enter product description"
+            value={product.id}
+            onChange={handleChangh}
+            className=""
+          />
           <button
             type="submit"
             className="w-full bg-blue-600 text-white rounded py-2 cursor-pointer hover:bg-blue-400">

@@ -61,7 +61,7 @@ const ProductSlice = createSlice({
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
         state.products = state.products.map((item) =>
-          item.id == action.payload.id ? action.payload : item
+          item.id == action.payload.id ? { ...item, ...action.payload } : item
         );
         state.isLoader = false;
         alertToast({ text: "Your Product Update Successfully" });
