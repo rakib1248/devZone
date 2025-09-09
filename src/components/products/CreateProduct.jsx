@@ -8,6 +8,7 @@ import { BiEdit, BiStar, BiTrash } from "react-icons/bi";
 import { IoIosStar } from "react-icons/io";
 import { useState } from "react";
 import Modal from "../Modal";
+import { alertToast } from "../../utils/alart";
 
 const CreateProduct = ({ title, img, price, id, publicId, all }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,11 @@ const CreateProduct = ({ title, img, price, id, publicId, all }) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    if (!product.title.trim()) return alertToast({ text: "Product Name is required", type: "error" });
+    if (!product.sellPrice)
+      return alertToast({ text: "Sell Price is required", type: "error" });
+    if (!product.dec.trim())
+      return alertToast({ text: "Description Empty", type: "error" });
     // sent data server
     dispatch(updateProduct(product));
 

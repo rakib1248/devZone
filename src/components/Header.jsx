@@ -5,6 +5,7 @@ import { createProduct } from "../redux/Feature/Products/ProductApiSlice";
 import { useRef } from "react";
 import { cloudImgUpload } from "../utils/cloudinary";
 import Loader from "./Loader";
+import { alertToast } from "../utils/alart";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -44,10 +45,13 @@ const Header = () => {
     setIsLoder(true);
     // validation
     const { title, sellPrice, dec } = product;
-    if (!title.trim()) return alert("Title Name is required");
-    if (!sellPrice) return alert("Sell Price is required");
-    if (!dec.trim()) return alert("Description is required");
-    if (!image) return alert("Product Image Empty");
+    if (!title.trim())
+      return alertToast({ text: "Product Name is required", type: "error" });
+    if (!sellPrice)
+      return alertToast({ text: "Sell Price is required", type: "error" });
+    if (!dec.trim()) alertToast({ text: "Description Empty", type: "error" });
+    if (!image)
+      return alertToast({ text: "Product Image  Empty", type: "error" });
 
     // sent data server
 
