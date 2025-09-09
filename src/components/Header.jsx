@@ -41,7 +41,7 @@ const Header = () => {
   // form submit
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setIsLoder(true)
+    setIsLoder(true);
     // validation
     const { title, sellPrice, dec } = product;
     if (!title.trim()) return alert("Title Name is required");
@@ -75,8 +75,7 @@ const Header = () => {
     setIsModal(false);
     fileInputRef.current.value = null;
     setImage(null);
-    setIsLoder(false)
-    
+    setIsLoder(false);
   };
 
   return (
@@ -87,7 +86,7 @@ const Header = () => {
           onClick={() => {
             setIsModal(true);
           }}
-          className="text-xl font-bold cursor-pointer">
+          className="text-xl font-bold cursor-pointer border px-5 py-2 rounded-2xl">
           Create Product
         </button>
 
@@ -213,7 +212,7 @@ const Header = () => {
         </div>
       )}
 
-      {isLoder && <Loader/>}
+      {isLoder && <Loader />}
     </header>
   );
 };
